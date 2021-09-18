@@ -1,1 +1,22 @@
-<p>post works!</p>
+<h2>{{ post?.title }}</h2>
+<p>
+    <strong>Description</strong>:<br>{{ post?.description}}
+</p>
+
+<img
+  src= "{{ post?.imagePath }}"
+  class="img-responsive"
+/>
+
+<p>
+    <strong>Author</strong>: {{ post?.author}}
+</p>
+<p>
+    <strong>Date Created</strong>: {{ post?.dateCreated }}
+</p>
+<button 
+class="btn btn-primary"
+(click)="editPost()">Edit Post</button> |
+<button 
+class="btn btn-danger"
+(click)="deletePost()">Delete Post</button>

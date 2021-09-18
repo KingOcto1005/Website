@@ -7,7 +7,33 @@ import { PostListComponent } from './post-list/post-list.component';
 import { PostComponent } from './post/post.component';
 import { PostEditComponent } from './post/post-edit/post-edit.component';
 import { AuthComponent } from './auth/auth.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/post-list',
+    pathMatch: 'full'
+  },
+{
+  path: 'post-list',
+  component: PostListComponent
+},
+{
+  path: 'auth',
+  component: AuthComponent
+},
+{
+  path: 'post-edit/:index',
+  component: PostEditComponent
+},
+{
+  path: 'add',
+  component: PostEditComponent
+}
+
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +44,9 @@ import { AuthComponent } from './auth/auth.component';
     AuthComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
